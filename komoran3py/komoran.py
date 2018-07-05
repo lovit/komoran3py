@@ -14,7 +14,7 @@ class Komoran:
     def set_user_dictionary(self, path):
         """
         Arguments
-        ----
+        ---------
         path : str
             dictionary file path
         """

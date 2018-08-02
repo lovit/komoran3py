@@ -58,3 +58,13 @@ komoran instance 를 새로 만들면, 사용자 사전의 정보는 초기화�
      ('멤버', 'NNP'),
      ('이', 'VCP'),
      ('ㅂ니다', 'EC')]
+
+## KoNLPy update
+
+KoNLPy 0.4.5 에 코모란3가 업데이트 되었습니다. 0.4.5 부터 사용자 사전 추가 기능이 제공됩니다. KoNLPy 의 Komoran 에 사용자 사전을 추가하는 예시코드입니다.
+
+    from konlpy.tag import Komoran
+
+    dicpath = 'YOUR_DICPATH' # 텍스트 파일주소로, 사용자 사전의 구조는 위와 같습니다.
+    komoran = Komoran(userdic=dicpath)
+    komoran.pos(sent)

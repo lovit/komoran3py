@@ -61,7 +61,7 @@ komoran instance 를 새로 만들면, 사용자 사전의 정보는 초기화�
 
 ## KoNLPy update
 
-KoNLPy 0.4.5 에 코모란3가 업데이트 되었습니다. 0.4.5 부터 사용자 사전 추가 기능이 제공됩니다. KoNLPy 의 Komoran 에 사용자 사전을 추가하는 예시코드입니다.
+KoNLPy 0.5.0 에 코모란3가 업데이트 되었습니다. 0.5.0 부터 사용자 사전 추가 기능이 제공됩니다. KoNLPy 의 Komoran 에 사용자 사전을 추가하는 예시코드입니다.
 
     from konlpy.tag import Komoran
 

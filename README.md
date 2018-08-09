@@ -2,9 +2,9 @@
 
 Komoran 은 Java 로 구현된 한국어 형태소 분석기입니다. 이 프로젝트는 Junsoo Shin 님의 [github](https://github.com/shin285/KOMORAN) 에 공개되어 있습니다. 
 
-[KoNLPy](http://konlpy.org/) 에서도 Komoran 2.x 를 포함하고 있습니다. 
+Komoran 에는 사용자 사전 추가 기능이 있습니다. 이 기능을 Python 환경에서도 이용할 수 있도록 하였습니다. [KoNLPy](http://konlpy.org/) 의 version 0.4.5 까지는 Komoran 2.x 기능을 제공하였습니다. 2018-08-01 이후 KoNLPy 는 0.5.1 로 버전이 올라갔으며, Komoran 에 한하여 사용자 사전의 추가 기능이 제공됩니다. KoNLPy 의 사용자 사전 추가 기능의 이용 방법은 README 의 하단을 참고하세요.
 
-Komoran 에는 사용자 사전 추가 기능이 있습니다. 이 기능을 Python 환경에서도 이용할 수 있도록 하였습니다.
+이 repository 역시 KoNLPy 처럼 Python 에서 Java 로 구현된 라이브러리를 이용하기 위한 방법을 포함하고 있습니다. jvm.py 파일의 형식은 KoNLPy 를 참고하였습니다. JPype 를 이용하여 Python 에서 Java 라이브러리들을 이용하기 위한 방법을 알고 싶다면 jvm.py 파일과 [블로그](https://lovit.github.io/nlp/2018/07/06/java_in_python/) 를 
 
 ## Usage
 

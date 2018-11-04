@@ -69,8 +69,10 @@ komoran.pos(sent)
 
 KoNLPy 0.5.0 에 코모란3가 업데이트 되었습니다. 0.5.0 부터 사용자 사전 추가 기능이 제공됩니다. KoNLPy 의 Komoran 에 사용자 사전을 추가하는 예시코드입니다.
 
-    from konlpy.tag import Komoran
+```python
+from konlpy.tag import Komoran
 
-    dicpath = 'YOUR_DICPATH' # 텍스트 파일주소로, 사용자 사전의 구조는 위와 같습니다.
-    komoran = Komoran(userdic=dicpath)
-    komoran.pos(sent)
+dicpath = 'YOUR_DICPATH' # 텍스트 파일주소로, 사용자 사전의 구조는 위와 같습니다.
+komoran = Komoran(userdic=dicpath)
+komoran.pos(sent)
+```

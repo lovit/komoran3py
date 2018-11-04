@@ -10,11 +10,13 @@ Komoran 에는 사용자 사전 추가 기능이 있습니다. 이 기능을 Pyt
 
 KoNLPy 의 함수명을 따라갑니다.
 
-    from komoran3py import Komoran
-    komoran = Komoran()
-    
-    sent = '청하는아이오아이멤버입니다'
-    komoran.pos(sent)
+```python
+from komoran3py import Komoran
+komoran = Komoran()
+
+sent = '청하는아이오아이멤버입니다'
+komoran.pos(sent)
+```
 
 단어 '아이오아이'는 미등록단어로, 제대로 인식이 되지 않습니다.
 
@@ -32,8 +34,10 @@ KoNLPy 의 함수명을 따라갑니다.
 
 사전을 추가하여 다시 형태소 분석을 수행합니다.
 
-    komoran.set_user_dictionary('./user_dictionary.txt')
-    komoran.pos(sent)
+```python
+komoran.set_user_dictionary('./user_dictionary.txt')
+komoran.pos(sent)
+```
 
 단어 '아이오아이'가 제대로 인식됩니다.
 
@@ -46,8 +50,10 @@ KoNLPy 의 함수명을 따라갑니다.
 
 komoran instance 를 새로 만들면, 사용자 사전의 정보는 초기화됩니다.
 
-    komoran = Komoran()
-    komoran.pos(sent)
+```python
+komoran = Komoran()
+komoran.pos(sent)
+```
 
 다시, 단어 '아이오아이'가 제대로 인식되지 않습니다.
 

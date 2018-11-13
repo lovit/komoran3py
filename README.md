@@ -6,6 +6,10 @@ Komoran 에는 사용자 사전 추가 기능이 있습니다. 이 기능을 Pyt
 
 이 repository 역시 KoNLPy 처럼 Python 에서 Java 로 구현된 라이브러리를 이용하기 위한 방법을 포함하고 있습니다. jvm.py 파일의 형식은 KoNLPy 를 참고하였습니다. JPype 를 이용하여 Python 에서 Java 라이브러리들을 이용하기 위한 방법을 알고 싶다면 jvm.py 파일과 [블로그](https://lovit.github.io/nlp/2018/07/06/java_in_python/) 를 보시기 바랍니다.
 
+## Requirements
+
+Jpype1 >= 0.6.2
+
 ## Usage
 
 KoNLPy 의 함수명을 따라갑니다.

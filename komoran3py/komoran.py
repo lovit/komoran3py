@@ -2,7 +2,7 @@ import os
 import jpype
 from .jvm import init_jvm
 
-class Komoran:
+class KomoranPy:
 
     def __init__(self, max_heap=1024):
 

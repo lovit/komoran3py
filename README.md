@@ -11,8 +11,8 @@ Komoran 에는 사용자 사전 추가 기능이 있습니다. 이 기능을 Pyt
 KoNLPy 의 함수명을 따라갑니다.
 
 ```python
-from komoran3py import Komoran
-komoran = Komoran()
+from komoran3py import KomoranPy
+komoran = KomoranPy()
 
 sent = '청하는아이오아이멤버입니다'
 komoran.pos(sent)
@@ -51,7 +51,7 @@ komoran.pos(sent)
 komoran instance 를 새로 만들면, 사용자 사전의 정보는 초기화됩니다.
 
 ```python
-komoran = Komoran()
+komoran = KomoranPy()
 komoran.pos(sent)
 ```
 

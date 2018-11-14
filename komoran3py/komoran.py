@@ -4,9 +4,9 @@ from .jvm import init_jvm
 
 class KomoranPy:
 
-    def __init__(self, max_heap=1024):
+    def __init__(self, jvmpath=None, max_heap=1024):
 
-        init_jvm(max_heap=max_heap)
+        init_jvm(jvmpath=jvmpath, max_heap=max_heap)
         package = jpype.JPackage('kr.co.shineware.nlp.komoran.core')
         model_path = os.path.dirname(os.path.realpath(__file__)) + '/models/'
         self._komoran = package.Komoran(model_path)

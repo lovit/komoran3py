@@ -4,7 +4,10 @@ import os
 import sys
 import jpype
 
-def init_jvm(libraries=None, max_heap=1024):
+def get_default_jvm_path():
+    return jpype.getDefaultJVMPath()
+
+def init_jvm(jvmpath=None, libraries=None, max_heap=1024):
     """Initializes the Java virtual machine (JVM).
     use Java in jpype.getDefaultJVMPath
     """
@@ -28,7 +31,8 @@ def init_jvm(libraries=None, max_heap=1024):
     args = [javadir, os.sep]
     libpaths = [p.format(*args) for p in libpaths]
     classpath = os.pathsep.join(libpaths)
-    jvmpath = jpype.getDefaultJVMPath()
+    if jvmpath is None:
+        jvmpath = jpype.getDefaultJVMPath()
 
     try:
         jpype.startJVM(

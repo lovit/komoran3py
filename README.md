@@ -10,7 +10,7 @@ Komoran 에는 사용자 사전 추가 기능이 있습니다. 이 기능을 Pyt
 
 Jpype1 >= 0.6.2
 
-## Usage
+## Basic usage
 
 KoNLPy 의 함수명을 따라갑니다.
 
@@ -68,6 +68,44 @@ komoran.pos(sent)
      ('멤버', 'NNP'),
      ('이', 'VCP'),
      ('ㅂ니다', 'EC')]
+
+
+## Word position and flatten
+
+flatten=False 로 설정하면 띄어쓰기 기준으로 nested list 형태의 결과를 return 합니다. 기본값은 flatten = True 입니다. 어절 단위의 단어를 확인할 수 있습니다.
+
+```python
+sent = '청하는 아이오아이 멤버입니다'
+komoran.pos(sent, flatten=False)
+```
+
+    [[('청하', 'VV'), ('는', 'ETM')],
+     [('아이오아이', 'NNP')],
+     [('멤버', 'NNP'), ('이', 'VCP'), ('ㅂ니다', 'EC')]]
+
+position = True 로 설정하면 각 단어의 position 을 알 수 있습니다. 기본값은 position = False 입니다.
+
+```python
+komoran.pos(sent, flatten=False, position=True)
+```
+
+    [[('청하', 'VV', 0, 2), ('는', 'ETM', 2, 3)],
+     [('아이오아이', 'NNP', 4, 9)],
+     [('멤버', 'NNP', 10, 12), ('이', 'VCP', 12, 13), ('ㅂ니다', 'EC', 12, 15)]]
+
+flatten = True 로 설정하였을 때에도 position = True 설정이 가능합니다.
+
+```python
+komoran.pos(sent, flatten=True, position=True)
+```
+
+    [('청하', 'VV', 0, 2),
+     ('는', 'ETM', 2, 3),
+     ('아이오아이', 'NNP', 4, 9),
+     ('멤버', 'NNP', 10, 12),
+     ('이', 'VCP', 12, 13),
+     ('ㅂ니다', 'EC', 12, 15)]
+
 
 ## KoNLPy update
 

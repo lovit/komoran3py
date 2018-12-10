@@ -1,6 +1,6 @@
 import os
 import jpype
-from .jvm import init_jvm
+from komoran3py.jvm import init_jvm
 
 class KomoranPy:
 
@@ -20,7 +20,63 @@ class KomoranPy:
         """
         self._komoran.setUserDic(path)
 
-    def pos(self, sent):
-        tokens = self._komoran.analyze(sent).getTokenList()
-        tokens = [(token.getMorph(), token.getPos()) for token in tokens]
-        return tokens
+    def pos(self, sent, flatten=True, position=False):
+        """
+        Arguments
+        ---------
+        sent : str
+            Input sentence
+
+        flatten : Boolean
+            If True, pos function returns list of words
+            Else, this function returns nested list. [[words in eojeol] for eojeol in sent]
+
+                > komoran = KomoranPy()
+                > komoran.pos('테스트 입니다', flatten=False)
+                $ [[('테스트', 'NNP', 0, 3)],
+                   [('이', 'VV', 4, 5), ('ㅂ니다', 'EC', 4, 6)]]
+
+            Default is True
+
+        position : Boolean
+            If True, the result of pos function contains begin and end position of each word
+
+                > komoran.pos('테스트 입니다', position=True)
+                $ [('테스트', 'NNP', 0, 3), ('이', 'VV', 4, 5), ('ㅂ니다', 'EC', 4, 6)]]
+
+                > komoran.pos('테스트 입니다', position=False)
+                $ [('테스트', 'NNP'), ('이', 'VV'), ('ㅂ니다', 'EC')]]
+
+            Default is False
+        """
+
+        try:
+            tokens = self._komoran.analyze(sent).getTokenList()
+        except Exception as e:
+            print(e)
+            return []
+
+        tokens = [(token.getMorph(),
+                   token.getPos(),
+                   token.getBeginIndex(),
+                   token.getEndIndex())
+                  for token in tokens]
+
+        if flatten:
+            if not position:
+                tokens = [token[:2] for token in tokens]
+            return tokens
+
+        tokens_ = []
+        eojeol = []
+        for i, token in enumerate(tokens):
+            if i > 0 and token[2] > tokens[i-1][3] and eojeol:
+                tokens_.append(eojeol)
+                eojeol = []
+            eojeol.append(token)
+        tokens_.append(eojeol)
+
+        if not position:
+            tokens_ = [[token[:2] for token in tokens] for tokens in tokens_]
+
+        return tokens_

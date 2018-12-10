@@ -118,3 +118,5 @@ dicpath = 'YOUR_DICPATH' # 텍스트 파일주소로, 사용자 사전의 구조
 komoran = Komoran(userdic=dicpath)
 komoran.pos(sent)
 ```
+
+단, flatten 이나 position 에 대한 기능은 KoNLPy 의 인터페이스와 맞지 않아 업데이트 하지 않았습니다.
